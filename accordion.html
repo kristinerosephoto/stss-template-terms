@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Template Terms</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 15px;
+    color: #333;
+    padding: 8px;
+    background: transparent;
+  }
+
+  .accordion-item {
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    overflow: hidden;
+  }
+
+  .accordion-header {
+    width: 100%;
+    background: #f8f8f8;
+    border: none;
+    padding: 16px 20px;
+    text-align: left;
+    font-size: 15px;
+    font-weight: 600;
+    color: #333;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background 0.2s;
+  }
+
+  .accordion-header:hover {
+    background: #f0f0f0;
+  }
+
+  .accordion-header.active {
+    background: #f0f0f0;
+  }
+
+  .accordion-icon {
+    font-size: 20px;
+    font-weight: 300;
+    color: #888;
+    transition: transform 0.3s;
+    flex-shrink: 0;
+    margin-left: 12px;
+  }
+
+  .accordion-header.active .accordion-icon {
+    transform: rotate(45deg);
+  }
+
+  .accordion-body {
+    display: none;
+    padding: 18px 20px;
+    background: white;
+    border-top: 1px solid #e0e0e0;
+    line-height: 1.7;
+  }
+
+  .accordion-body.open {
+    display: block;
+  }
+
+  .accordion-body ol {
+    padding-left: 20px;
+  }
+
+  .accordion-body ol li {
+    margin-bottom: 10px;
+  }
+
+  .accordion-body p {
+    margin-bottom: 10px;
+  }
+
+  .accordion-body a {
+    color: #5b8fa8;
+    text-decoration: underline;
+  }
+
+  .highlight {
+    font-weight: 600;
+    color: #333;
+  }
+</style>
+</head>
+<body>
+
+<div class="accordion-item">
+  <button class="accordion-header" onclick="toggle(this)">
+    + Resubmission & Request Policy
+    <span class="accordion-icon">+</span>
+  </button>
+  <div class="accordion-body">
+    <ol>
+      <li>You have <span class="highlight">10 days</span> from the date your collaborator invite is sent to accept it.</li>
+      <li>If your invite expires, you may resubmit your request <span class="highlight">one time</span> — please note this clearly in your resubmission.</li>
+      <li>If your invite expires a second time, your next request will be available at the <span class="highlight">start of the following quarter</span>.</li>
+      <li>You may submit <span class="highlight">one request per quarter</span>.</li>
+    </ol>
+  </div>
+</div>
+
+<div class="accordion-item">
+  <button class="accordion-header" onclick="toggle(this)">
+    + Good to Know
+    <span class="accordion-icon">+</span>
+  </button>
+  <div class="accordion-body">
+    <ol>
+      <li>This bonus is available to <span class="highlight">Shoot to Sell Society members only</span> and is non-transferable.</li>
+      <li>The template is provided as-is — it is your <span class="highlight">starting point</span>, not a finished website. Customization, content, and branding are your responsibility.</li>
+      <li>Support for customizing the template is available inside the <span class="highlight">Shoot to Sell Society community</span> and through <span class="highlight">The Strategic Lens</span> website critique tool.</li>
+      <li>This bonus does not include one-on-one setup assistance from Kristine or the STSS team.</li>
+    </ol>
+  </div>
+</div>
+
+<script>
+  function toggle(header) {
+    const body = header.nextElementSibling;
+    const isOpen = body.classList.contains('open');
+    
+    // Close all
+    document.querySelectorAll('.accordion-body').forEach(b => b.classList.remove('open'));
+    document.querySelectorAll('.accordion-header').forEach(h => h.classList.remove('active'));
+    
+    // Open clicked if it was closed
+    if (!isOpen) {
+      body.classList.add('open');
+      header.classList.add('active');
+    }
+  }
+</script>
+
+</body>
+</html>
