@@ -13,6 +13,7 @@
     color: #333;
     padding: 8px;
     background: transparent;
+    overflow: hidden;
   }
 
   .section-title {
@@ -146,6 +147,15 @@
       <strong>Heads up:</strong> You have 10 days to accept your collaborator invite once it's sent. Check your spam folder if you don't see it within 3 business days — if it's not there, email <a href="mailto:support@kristinerosephotography.com" style="color: #50E3C2;">support@kristinerosephotography.com</a>
     </div>
   </div>
+
+<script>
+  function sendHeight() {
+    const height = document.body.scrollHeight;
+    window.parent.postMessage({ frameHeight: height }, '*');
+  }
+  window.addEventListener('load', sendHeight);
+  window.addEventListener('resize', sendHeight);
+</script>
 
 </body>
 </html>
