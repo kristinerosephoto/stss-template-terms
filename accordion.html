@@ -13,6 +13,7 @@
     color: #333;
     padding: 8px;
     background: transparent;
+    overflow: hidden;
   }
 
   .accordion-item {
@@ -140,7 +141,19 @@
       body.classList.add('open');
       header.classList.add('active');
     }
+
+    // Resize after animation
+    setTimeout(() => {
+      const height = document.body.scrollHeight;
+      window.parent.postMessage({ frameHeight: height }, '*');
+    }, 50);
   }
+
+  // Initial height on load
+  window.addEventListener('load', () => {
+    const height = document.body.scrollHeight;
+    window.parent.postMessage({ frameHeight: height }, '*');
+  });
 </script>
 
 </body>
